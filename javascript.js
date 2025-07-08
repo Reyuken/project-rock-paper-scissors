@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let humanScore = 0;
     let computerScore = 0;
-    let game = 0;
+    let round = 0;
 
     // function playGame(){
     function getComputerChoice() {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return choice;
     }
     function playRound(computerChoice, userChoice) {
-        game++;
+        round++;
         //computer chooses rock
         if (computerChoice == "rock" && userChoice == "rock") {
             document.getElementById("result").innerText = "It's a tie!";
@@ -69,13 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("result").innerText = "It's a tie!";
             return;
         }
-        // else {
-        //     games--
-        //     return console.log("Input a valid Choice!")
-
-        // }
-
-
+       
     }
     function scoring() {
         document.getElementById("showHumanScore").innerText = "Human:" + humanScore;
@@ -93,9 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("result").innerText = finalMessage;
         document.getElementById("rockBtn").disabled = true;
         document.getElementById("paperBtn").disabled = true;
-        document.getElementById("scissorsBtn").disabled = true
+        document.getElementById("scissorsBtn").disabled = true;
     }
+    function reset(){
+        document.getElementById("reset").addEventListener("click",() =>{
 
+        document.getElementById("")
+        });
+
+    }
 
 
     // RPS Buttons
@@ -105,8 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
         scoring();
-        document.getElementById("game").innerText = "Round" + " " + game;
-        if (game == 5){endgame();}
+        document.getElementById("round").innerText = "Round" + " " + round;
+        if (round == 5){endgame();}
         
     });
     document.getElementById("paperBtn").addEventListener("click", () => {
@@ -114,14 +114,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
         scoring();
-        document.getElementById("game").innerText = "Round" + " " + game;
+        document.getElementById("round").innerText = "Round" + " " + round;
+        if (round == 5){endgame();}
     });
     document.getElementById("scissorsBtn").addEventListener("click", () => {
         const humanSelection = getHumanChoice('scissors');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
         scoring();
-        document.getElementById("game").innerText = "Round" + " " + game;
+        document.getElementById("round").innerText = "Round" + " " + round;
+        if (round == 5){endgame();}
     })
     // for (games=0;games<5;games++){
     // playGame()
