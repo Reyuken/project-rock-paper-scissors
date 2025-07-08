@@ -69,11 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("result").innerText = "It's a tie!";
             return;
         }
-       
+
     }
     function scoring() {
-        document.getElementById("showHumanScore").innerText = "Human:" + humanScore;
-        document.getElementById("showComputerScore").innerText = "Computer:" + computerScore;
+        document.getElementById("showHumanScore").innerText = "Human:" + " " + humanScore;
+        document.getElementById("showComputerScore").innerText = "Computer:" + " " + computerScore;
         return
     }
     function endgame() {
@@ -88,42 +88,55 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("rockBtn").disabled = true;
         document.getElementById("paperBtn").disabled = true;
         document.getElementById("scissorsBtn").disabled = true;
+        document.getElementById("reset").style.display = "inline-block";
     }
-    function reset(){
-        document.getElementById("reset").addEventListener("click",() =>{
+    function reset() {
+        //reset scores and the display in html
+        humanScore = 0;
+        computerScore = 0;
+        round = 0;
+        document.getElementById("result").innerText = "";
+        document.getElementById("userChoice").innerText = "You chose: nothing";
+        document.getElementById("showHumanScore").innerText = "Human:" + " " + humanScore;
+        document.getElementById("showComputerScore").innerText = "Computer:" + " " + computerScore;
+        document.getElementById("round").innerText = "Round:" + " " + round;
+        //reset buttons
+        document.getElementById("rockBtn").disabled = false
+        document.getElementById("paperBtn").disabled = false;
+        document.getElementById("scissorsBtn").disabled = false;
+        document.getElementById("reset").style.display = "none";
 
-        document.getElementById("")
-        });
+    };
 
-    }
+
 
 
     // RPS Buttons
-
+    document.getElementById("reset").addEventListener("click", reset);
     document.getElementById("rockBtn").addEventListener("click", () => {
         const humanSelection = getHumanChoice('rock');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
         scoring();
-        document.getElementById("round").innerText = "Round" + " " + round;
-        if (round == 5){endgame();}
-        
+        document.getElementById("round").innerText = "Round:" + " " + round;
+        if (round == 5) { endgame(); }
+
     });
     document.getElementById("paperBtn").addEventListener("click", () => {
         const humanSelection = getHumanChoice('paper');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
         scoring();
-        document.getElementById("round").innerText = "Round" + " " + round;
-        if (round == 5){endgame();}
+        document.getElementById("round").innerText = "Round:" + " " + round;
+        if (round == 5) { endgame(); }
     });
     document.getElementById("scissorsBtn").addEventListener("click", () => {
         const humanSelection = getHumanChoice('scissors');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
         scoring();
-        document.getElementById("round").innerText = "Round" + " " + round;
-        if (round == 5){endgame();}
+        document.getElementById("round").innerText = "Round:" + " " + round;
+        if (round == 5) { endgame(); }
     })
     // for (games=0;games<5;games++){
     // playGame()
