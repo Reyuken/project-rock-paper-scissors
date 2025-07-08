@@ -18,53 +18,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
     function getHumanChoice(choice) {
-        document.getElementById("userChoice").innerHTML += "You chose: " + choice + "<br>";
+        document.getElementById("userChoice").innerHTML = "You chose: " + choice + "<br>";
         return choice;
     }
     function playRound(computerChoice, userChoice) {
         //computer chooses rock
         if (computerChoice == "rock" && userChoice == "rock") {
-            console.log("It's a tie!");
+            document.getElementById("result").innerText=("It's a tie!");
             return;
         }
         else if (computerChoice == "rock" && userChoice == "paper") {
             humanScore++
-            console.log("You win!,Paper beats Rock.");
+            document.getElementById("result").innerText=("You win!,Paper beats Rock.");
             return;
         }
         else if (computerChoice == "rock" && userChoice == "scissors") {
             computerScore++
-            console.log("You lose!,Rock beats Scissors.");
+            document.getElementById("result").innerText=("You lose!,Rock beats Scissors.");
             return;
         }
         //computer chooses paper
         if (computerChoice == "paper" && userChoice == "rock") {
             computerScore++
-            console.log("You lose!, Paper beats Rock.");
+            document.getElementById("result").innerText=("You lose!, Paper beats Rock.");
             return;
         }
         else if (computerChoice == "paper" && userChoice == "paper") {
-            console.log("It's a tie!");
+            document.getElementById("result").innerText=("It's a tie!");
             return;
         }
         else if (computerChoice == "paper" && userChoice == "scissors") {
             humanScore++
-            console.log("You win!,Scissors beats Paper.");
+            document.getElementById("result").innerText=("You win!,Scissors beats Paper.");
             return;
         }
         //computer chooses scissors
         if (computerChoice == "scissors" && userChoice == "rock") {
             humanScore++
-            console.log("You win!,Rock beats Scissors.");
+            document.getElementById("result").innerText=("You win!,Rock beats Scissors.");
             return;
         }
         else if (computerChoice == "scissors" && userChoice == "paper") {
             computerScore++
-            console.log("You lose!,Scissor beats Paper.");
+            document.getElementById("result").innerText=("You lose!,Scissor beats Paper.");
             return;
         }
         else if (computerChoice == "scissors" && userChoice == "scissors") {
-            console.log("It's a tie!");
+            document.getElementById("result").innerText=("It's a tie!");
             return;
         }
         // else {
@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function scoring(){
         document.getElementById("showHumanScore").innerText="Human:"+humanScore;
         document.getElementById("showComputerScore").innerText="Computer:"+computerScore;
-
         return 
     }
     
