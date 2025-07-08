@@ -81,6 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (humanScore > computerScore) {
             finalMessage = "YOU WIN!!";
         }
+        else if (humanScore == computerScore){
+            finalMessage = "Its a Tie!"
+        }
         else {
             finalMessage = "YOU LOSE!DUMBASS HAHAHAHAH";
         }
@@ -95,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         humanScore = 0;
         computerScore = 0;
         round = 0;
-        document.getElementById("result").innerText = "";
+        document.getElementById("result").innerText = "Undecided";
         document.getElementById("userChoice").innerText = "You chose: nothing";
         document.getElementById("showHumanScore").innerText = "Human:" + " " + humanScore;
         document.getElementById("showComputerScore").innerText = "Computer:" + " " + computerScore;
