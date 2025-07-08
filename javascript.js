@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return choice;
     }
     function playRound(computerChoice, userChoice) {
-        scoring();
+        game++;
         //computer chooses rock
         if (computerChoice == "rock" && userChoice == "rock") {
             document.getElementById("result").innerText = "It's a tie!";
@@ -74,6 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
         //     return console.log("Input a valid Choice!")
 
         // }
+        
+        
     }
     function scoring() {
         document.getElementById("showHumanScore").innerText = "Human:" + humanScore;
@@ -85,8 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const humanSelection = getHumanChoice('rock');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
+        scoring();
         document.getElementById("game").innerText = "Round" + " " + game;
-        game++;
+        
         // scoring();
     });
     document.getElementById("paperBtn").addEventListener("click", () => {
