@@ -74,38 +74,55 @@ document.addEventListener("DOMContentLoaded", () => {
         //     return console.log("Input a valid Choice!")
 
         // }
-        
-        
+
+
     }
     function scoring() {
         document.getElementById("showHumanScore").innerText = "Human:" + humanScore;
         document.getElementById("showComputerScore").innerText = "Computer:" + computerScore;
         return
     }
+    function endgame() {
+        let finalMessage = "";
+        if (humanScore > computerScore) {
+            finalMessage = "YOU WIN!!";
+        }
+        else {
+            finalMessage = "YOU LOSE!DUMBASS HAHAHAHAH";
+        }
+        document.getElementById("result").innerText = finalMessage;
+        document.getElementById("rockBtn").disabled = true;
+        document.getElementById("paperBtn").disabled = true;
+        document.getElementById("scissorsBtn").disabled = true
+    }
+
+
+
     // RPS Buttons
+
     document.getElementById("rockBtn").addEventListener("click", () => {
         const humanSelection = getHumanChoice('rock');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
         scoring();
         document.getElementById("game").innerText = "Round" + " " + game;
+        if (game == 5){endgame();}
         
-        // scoring();
     });
     document.getElementById("paperBtn").addEventListener("click", () => {
         const humanSelection = getHumanChoice('paper');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
-        // scoring();
+        scoring();
+        document.getElementById("game").innerText = "Round" + " " + game;
     });
     document.getElementById("scissorsBtn").addEventListener("click", () => {
         const humanSelection = getHumanChoice('scissors');
         const computerSelection = getComputerChoice();
         playRound(computerSelection, humanSelection);
-        // scoring();
-    });
-
-    // }
+        scoring();
+        document.getElementById("game").innerText = "Round" + " " + game;
+    })
     // for (games=0;games<5;games++){
     // playGame()
     // if (humanScore>computerScore){
